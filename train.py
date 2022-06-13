@@ -19,7 +19,7 @@ print(f"Using {device} device")
 
 
 class VeinDataset(Dataset):
-    def __init__(self, image_file, path_file, sample_shape=(11, 11, 11), skip=10):
+    def __init__(self, image_file, path_file, sample_shape, skip=0):
         image = nib.load(image_file)
         self.image = image.get_fdata()[:-skip]
         self.image_shape = np.shape(self.image)  # shape of the image
@@ -78,9 +78,13 @@ class VeinDataset(Dataset):
         return simg, sveins
 
 
+SAMPLE_SHAPE = (11, 11, 11)
+
 dataset = VeinDataset(
     os.path.join("data", "804893_SWI_TE1_leftbox.nii"),
     os.path.join("data", "901726_804893_TE1_leftbox_path.txt"),
+    SAMPLE_SHAPE,
+    skip=10,
 )
 
 
