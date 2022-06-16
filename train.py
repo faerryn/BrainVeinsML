@@ -164,7 +164,7 @@ test_dataloader = rightbox_dataloader
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using {device} device")
 
-MODEL_PATH="model.pth"
+MODEL_PATH = "model.pth"
 
 if os.path.exists(MODEL_PATH):
     model = torch.load(MODEL_PATH)
