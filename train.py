@@ -128,7 +128,7 @@ def test_loop(dataloader, model, loss_fn):
 
 
 NARROW = slice(None, -5)
-SAMPLE_SHAPE = (11, 11, 11)
+SAMPLE_SHAPE = (32, 64, 8)
 
 leftbox_data = VeinDataset(
     os.path.join("data", "804893_SWI_TE1_leftbox.nii"),
@@ -174,8 +174,8 @@ else:
             spatial_dims=3,
             in_channels=1,
             out_channels=1,
-            channels=(1,) * 3,
-            strides=(1,) * 2,
+            channels=(1,) * 8,
+            strides=(1,) * 7,
         ),
         nn.Sigmoid(),
     )
