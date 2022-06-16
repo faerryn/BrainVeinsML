@@ -174,8 +174,8 @@ else:
             spatial_dims=3,
             in_channels=1,
             out_channels=1,
-            channels=(1,) * 8,
-            strides=(1,) * 7,
+            channels=(1,) * 4,
+            strides=(1,) * 3,
         ),
         nn.Sigmoid(),
     )
