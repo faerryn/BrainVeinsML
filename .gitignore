@@ -1,3 +1,5 @@
 /.ropeproject/
 /.venv/
+/__pycache__/
 /data/
+/model.pth
