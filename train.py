@@ -144,7 +144,7 @@ rightbox_data = VeinDataset(
     narrow=NARROW,
 )
 
-learning_rate = 1e-3
+learning_rate = 0.001
 batch_size = 2
 
 leftbox_dataloader = DataLoader(
