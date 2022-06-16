@@ -174,8 +174,8 @@ else:
             spatial_dims=3,
             in_channels=1,
             out_channels=1,
-            channels=(1,) * 2,
-            strides=(1,) * 1,
+            channels=(1,) * 3,
+            strides=(1,) * 2,
         ),
         nn.Sigmoid(),
     )
@@ -185,11 +185,10 @@ model.double()
 loss_fn = nn.BCELoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
 
-epochs = 100
-for t in range(epochs):
-    print(f"Epoch {t+1}\n-------------------------------")
+epoch = 1
+while True:
+    print(f"Epoch {epoch}\n-------------------------------")
     train_loop(train_dataloader, model, loss_fn, optimizer)
     test_loop(test_dataloader, model, loss_fn)
-print("Done!")
-
-torch.save(model, MODEL_PATH)
+    torch.save(model, MODEL_PATH)
+    epoch += 1
